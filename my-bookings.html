@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Bookings - Pawfect Walks</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🐾 Pawfect Walks</h1>
+      <nav>
+        <a href="index.html">Book a Walk</a>
+        <a href="my-bookings.html" class="active">My Bookings</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>My Bookings</h2>
+      
+      <div id="emailLookup" class="email-lookup">
+        <p>Enter your email to view your bookings:</p>
+        <div class="form-group">
+          <input type="email" id="lookupEmail" placeholder="your.email@example.com">
+          <button class="btn btn-primary" onclick="loadMyBookings()">View Bookings</button>
+        </div>
+      </div>
+
+      <div id="bookingsList" style="display: none;">
+        <div class="bookings-header">
+          <h3 id="clientNameDisplay"></h3>
+          <button class="btn btn-secondary btn-sm" onclick="logout()">Different Email</button>
+        </div>
+        
+        <div class="bookings-filter">
+          <button class="filter-btn active" onclick="filterBookings('upcoming')">Upcoming</button>
+          <button class="filter-btn" onclick="filterBookings('past')">Past</button>
+          <button class="filter-btn" onclick="filterBookings('all')">All</button>
+        </div>
+
+        <div id="bookingsContainer"></div>
+      </div>
+
+      <div id="emptyState" style="display: none;" class="empty-state">
+        <p>📅 No bookings found.</p>
+        <a href="index.html" class="btn btn-primary">Book Your First Walk</a>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Pawfect Walks. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- CHANGED: Use api.js instead of config.js and airtable.js -->
+  <script src="js/api.js"></script>
+  <script src="js/my-bookings.js"></script>
+</body>
+</html>
